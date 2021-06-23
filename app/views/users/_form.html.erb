@@ -1,0 +1,28 @@
+<%= form_for @user do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email %><br>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+
+    <%= f.label :password_confirmation, "Confirm Password" %>
+    <%= f.password_field :password_confirmation %><br><br>
+
+    <%= f.label :first_name, "First Name" %>
+    <%= f.text_field :first_name %><br>
+
+    <%= f.label :last_name, "Last Name" %>
+    <%= f.text_field :last_name %><br>
+
+    <%= f.label :age %>
+    <%= f.text_field :age %><br>
+
+    <%= f.label :skin_type, "Skin Type" %>
+    <%= f.select :skin_type, options_for_select(skin_types) %><br>
+
+    <%= f.submit "Submit" %>
+
+<% end %>
+
+
+
