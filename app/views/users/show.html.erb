@@ -1,0 +1,10 @@
+<h2>Your Profile: <%= full_name %></h2>
+
+<h4>Here are your Products:</h4>
+<ul>
+<% @user.products.each do |product| %>
+    <li><%= link_to product.name, product_path(product) %></li>
+<% end %>
+</ul>
+
+
