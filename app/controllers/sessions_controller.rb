@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
 
+    def homepage
+    end
+
     def new
     end
 
@@ -15,5 +18,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy
+        session.clear
+        redirect_to users_path
     end
 end

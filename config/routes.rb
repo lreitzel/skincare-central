@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  root 'sessions#homepage'
+
+  resources :products, only: [:index, :show] do
+    resources :reviews, only: [:index, :show, :new]
+  end
   resources :products
   resources :reviews
   resources :users

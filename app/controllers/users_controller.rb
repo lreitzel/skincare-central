@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :current_user, only: [:edit, :update, :show]
+    before_action :set_current_user, only: [:edit, :update, :show]
 
     def index #needs view showing all users?
         @users = User.all
@@ -40,8 +40,7 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        session.clear
-        redirect_to users_path
+        
     end
     
     private
@@ -50,8 +49,5 @@ class UsersController < ApplicationController
         params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :age, :skin_type)
     end
 
-    def current_user
-        @user = User.find_by(id: session[:user_id])
-    end
     
 end
