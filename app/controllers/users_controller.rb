@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     end
 
     def show #profile page
-        if @user.exists?
+        if @user != nil
             render :show
         else
             redirect_to users_path, alert: "User not found"
