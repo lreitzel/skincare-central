@@ -4,7 +4,11 @@ class ReviewsController < ApplicationController
     end
 
     def new #form should be nested so that we can create a product(or choose from one) at the same time
-        @review = Review.new(product_id: params[:product_id])
+        if params[:product_id]
+            @review = Review.new(product_id: params[:product_id])
+        else
+            @review = Review.new
+        end
     end
 
     def create
