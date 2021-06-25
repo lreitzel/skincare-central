@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_current_user, only: [:edit, :update, :show]
+    before_action :set_current_user, only: [:edit, :update, :show, :destroy]
 
     def index #needs view showing all users?
         @users = User.all
@@ -40,7 +40,8 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        
+        @user.delete
+        redirect_to root_path, alert: "Your account has been deleted"
     end
     
     private
