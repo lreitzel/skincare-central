@@ -1,1 +1,33 @@
-<%= form_for review do |f| %>
+<%= form_for @review do |f| %>
+
+    <h4>Product:</h4>
+
+    <%= fields_for :products do |product| %>
+        <%= product.label :name %>
+        <%= product.text_field :name %><br>
+
+        <%= product.label :type %>
+        <%= product.text_field :type %><br>
+
+        <%= product.label :brand %>
+        <%= product.text_field :brand %><br>
+
+        <%= product.label :price %>
+        <%= product.text_field :price %><br>
+    <% end %>
+
+    <h4>Review:</h4>
+
+ <%= f.label :rating %>
+ <%= f.text_field :rating %><br>
+
+ <%= f.label :image %>
+ <%= f.text_field :image %><br>
+
+ <%= f.label :review_body, "Review:" %>
+ <%= f.text_area :review_body %><br><br>
+
+ <%= f.submit "Submit" %>
+
+<% end %>
+
