@@ -1,6 +1,6 @@
 module ApplicationHelper
-    helper_method :current_user, :set_current_user, :logged_in
-
+    
+    
     def current_user
         User.find_by(id: session[:user_id])
     end
@@ -15,5 +15,9 @@ module ApplicationHelper
 
     def skin_types
         ["Normal", "Dry", "Oily", "Combination"]
+    end
+
+    def set_product
+        @product = Product.find_by(id: params[:product][:id])
     end
 end

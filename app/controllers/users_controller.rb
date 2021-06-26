@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    before_action :set_current_user, only: [:edit, :update, :show, :destroy]
+    # helper_method :set_current_user
+    # before_action :set_current_user, only: [:edit, :update, :show, :destroy]
 
     def index #needs view showing all users?
         @users = User.all
@@ -15,15 +16,17 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(current_user)
         else
-            render :new, alert: "Sign-Up Unsuccessful, Please Try Again"
+            flash[:alert] = "Sign-Up Unsuccessful, Please Try Again"
+            render :new
         end
     end
 
     def show #profile page
+        @user = current_user
         if @user != nil
             render :show
         else
-            redirect_to users_path, alert: "User not found"
+            redirect_to root_path, alert: "User not found"
         end
     end
 

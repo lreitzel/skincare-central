@@ -6,9 +6,16 @@ class ProductsController < ApplicationController
     end
 
     def new #should I just have reviews new be the place where we make a new product?
+        @product = Product.new
     end
 
     def create #see above
+        @product = Product.create(:product_params)
+        if @product.save
+            redirect_to product_path(@product)
+        else
+            render :new
+        end
     end
 
     def show #want to show/link to all reviews associated with the product
@@ -18,6 +25,11 @@ class ProductsController < ApplicationController
     end
 
     def update #see above
+        if @product.update(:product_params)
+            redirect_to product_path(@product)
+        else
+            render :edit
+        end
     end
 
     def destroy #maybe shouldn't be allowed because others may want to use this product
@@ -26,11 +38,9 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-        params.require(:product).permit(:name, :type, :brand, :price)
+        params.require(:product).permit(:name, :type, :brand, :price, review_attributes: [:rating, :review_body, :image])
     end
 
-    def set_product
-        @product = Product.find_by(id: params[:product][:id])
-    end
+    
     
 end
