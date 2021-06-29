@@ -18,6 +18,6 @@ module ApplicationHelper
     end
 
     def set_product
-        @product = Product.find_by(id: params[:product][:id])
+        @product = Product.find_by(id: params[:id])
     end
 end

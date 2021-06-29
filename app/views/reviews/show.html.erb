@@ -1,0 +1,6 @@
+<h2><%= @review.product.name %></h2>
+<%= @review.rating %>
+<br><br>
+<%= @review.review_body %>
+<br><br>
+<%= link_to "Delete Review", review_path(@review), method: :destroy %>

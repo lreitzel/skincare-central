@@ -1,3 +1,10 @@
 
-
+<h2><%= @product.name %></h2>
+<br>
+<% @product.reviews.each do |r| %>
+    <ul>
+    <li><%= r.rating %> - <%= r.review_body %></li>
+    </ul>
+<% end %>
+<br><br>
 <%= link_to "New Review", new_product_review_path(@product) %>

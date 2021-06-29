@@ -1,8 +1,10 @@
 <h2><%= @user.first_name %>'s Profile</h2>
 
-<h3>Products:</h3>
+<h3>Here are your reviews:</h3>
+ <% @user.reviews.each do |r| %>
+    <ul>
+    <li><%= link_to r.product.name, product_path(r.product) %> - <%= r.review_body %></li>
+    </ul>
+<% end %>
 
-<br><br>
-
-<%= link_to "Create New Review", new_review_path %>
 

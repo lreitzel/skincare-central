@@ -1,0 +1,5 @@
+<% @reviews.each do |r| %>
+    <ul>
+        <li><%= link_to r.product.name, product_path(r.product) %> - <%= r.rating %></li>
+    </ul>
+<% end %>

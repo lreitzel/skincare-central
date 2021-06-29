@@ -2,12 +2,15 @@ Rails.application.routes.draw do
 
   root 'sessions#homepage'
 
-  resources :products, only: [:index, :show] do
-    resources :reviews, only: [:index, :show, :new]
-  end
   resources :products
   resources :reviews
   resources :users
+
+  resources :products, only: [:index, :show] do
+    resources :reviews, only: [:index, :show, :new]
+  end
+  
+  
 
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
