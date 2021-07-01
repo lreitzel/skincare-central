@@ -3,7 +3,7 @@
 <br>
 <% @product.reviews.each do |r| %>
     <ul>
-    <li><%= r.rating %> - <%= r.review_body %></li>
+    <li><%= link_to r.rating, product_review_path(@product, r) %> - <%= r.review_body %></li>
     </ul>
 <% end %>
 <br><br>

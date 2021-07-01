@@ -1,19 +1,11 @@
-<%= form_for @review do |f| %>
+<%= form_for(@review) do |f| %>
     <%= f.hidden_field :user_id, value: @user.id %>
-
-    <h4>Select a Product:</h4>
-    <%= f.collection_select :product_id, Product.all, :id, :name, {include_blank: true} %>
-
-    <h4>Or Create a Product:</h4>
-    <%= fields_for :product do |p| %>
-        <%= p.label :name %>
-        <%= p.text_field :name %>
-        <%= p.label :category %>
-        <%= p.text_field :category %>
-        <%= p.label :brand %>
-        <%= p.text_field :brand %>
-        <%= p.label :price %>
-        <%= p.text_field :price %>
+    <% if params[:product_id] %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <h3>Product: <%= @product.name %></h3>
+    <% else %>
+        <h4>Select a Product:</h4>
+        <%= f.collection_select :product_id, Product.all, :id, :name, {include_blank: true} %>
     <% end %>
 
     <h4>Create a Review:</h4>

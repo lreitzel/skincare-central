@@ -1,16 +1,11 @@
-<h5>Create New Product:</h5>
-    <%= form_for @product do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name %><br>
-
-        <%= f.label :category %>
-        <%= f.text_field :category %><br>
-
-        <%= f.label :brand %>
-        <%= f.text_field :brand %><br>
-
-        <%= f.label :price %>
-        <%= f.text_field :price %><br>
-
-        <%= f.submit %>
-    <% end %>
+<%= form_for @product do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+    <%= f.label :brand %>
+    <%= f.text_field :brand %>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+    <%= f.submit %>
+<% end %>
