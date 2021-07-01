@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
-    # helper_method :set_current_user
-    # before_action :set_current_user, only: [:edit, :update, :show, :destroy]
+    helper_method :set_current_user
+    before_action :set_current_user, only: [:edit, :update, :show, :destroy]
 
-    def index #needs view showing all users?
-        @users = User.all
-    end
 
     def new #signup
         @user = User.new
@@ -22,7 +19,6 @@ class UsersController < ApplicationController
     end
 
     def show #profile page
-        @user = current_user
         if @user != nil
             render :show
         else
