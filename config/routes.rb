@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'sessions#homepage'
 
-  get 'auth/google_oauth2/callback', to: "sessions#omniauth"
+  get '/auth/:google_oauth2/callback', to: "sessions#omniauth"
   # get 'auth/failure', to: redirect('/')
 
   resources :products

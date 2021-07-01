@@ -18,11 +18,7 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        @user = User.find_or_create_by(uid: request.env['omniauth.auth']['uid']) do |user|
-            user.email = ['omniauth.auth']['info']['email']
-            user.first_name = ['omniauth.auth']['info']['first_name']
-            user.last_name = ['omniauth.auth']['info']['last_name']
-        end
+        @user = User.from_omniauth(request.env['omniauth.auth'])
         if @user.valid?
             session[:user_id] = @user.id
             redirect_to user_path(@user)
