@@ -1,6 +1,8 @@
 <h2><%= @review.product.name %></h2>
-<%= @review.rating %>
+<%= @review.rating %> - <%= @review.review_body %>
 <br><br>
-<%= @review.review_body %>
-<br><br>
-<%= link_to "Delete Review", review_path(@review), method: :destroy %>
+<% if current_user.id == @review.user_id %>
+    <%= link_to "Edit Review", edit_review_path(@review) %>
+    <br><br>
+    <%= link_to "Delete Review", review_path(@review), method: :delete %>
+<% end %>
