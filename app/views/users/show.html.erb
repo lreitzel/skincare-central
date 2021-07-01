@@ -1,10 +1,14 @@
 <h2><%= @user.first_name %>'s Profile</h2>
 
+<h3>Skin Type:</h3><%= @user.skin_type %></h3>
+
 <h3>Here are your reviews:</h3>
  <% @user.reviews.each do |r| %>
     <ul>
     <li><%= link_to r.product.name, product_path(r.product) %> - <%= r.review_body %></li>
     </ul>
 <% end %>
+
+<%= link_to "Edit Profile", edit_user_path(@user) %>
 
 
