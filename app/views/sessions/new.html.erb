@@ -1,3 +1,5 @@
+<h2>Login to Skincare Central<h2>
+
 <%= form_for :user, url: login_path, method: :post do |f| %>
     <%= f.label :email %>
     <%= f.text_field :email %>
@@ -6,4 +8,7 @@
     <%= f.password_field :password %>
 
     <%= f.submit "Login" %>
-<% end %>
+<% end %> 
+
+<h2>Or Login Using Google:</h2>
+<%= button_to "Login with Google", '/auth/google_oauth2' %>

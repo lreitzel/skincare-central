@@ -1,13 +1,20 @@
 class ReviewsController < ApplicationController
     before_action :set_current_user, only: [:new, :create, :edit, :update]
+    before_action :set_review, only: [:show, :edit, :update, :destroy]
 
-    def index #do we want a page with all the reviews? Should probably just be on the products/index page
-        @reviews = Review.all
+    def index
+        if params[:product_id] && @product = Product.find(params[:product_id])
+            @reviews = @product.reviews
+        else
+            @reviews = Review.all
+        end
     end
 
     def new #form should be nested so that we can create a product(or choose from one) at the same time
         if params[:product_id] && @product = Product.find(params[:product_id])
             @review = Review.new(product_id: params[:product_id])
+        else
+            @review = Review.new
         end
     end
 
@@ -21,15 +28,12 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        @review = Review.find_by(id: params[:id])
     end
 
     def edit
-        @review = Review.find_by(id: params[:id])
     end
 
     def update
-        @review = Review.find_by(id: params[:id])
         @review.update(review_params)
         if @review.save
             redirect_to review_path(@review)
@@ -39,7 +43,6 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        @review = Review.find_by(id: params[:id])
         @review.delete
         redirect_to reviews_path
     end
