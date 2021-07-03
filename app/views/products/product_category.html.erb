@@ -1,0 +1,13 @@
+<h3>All Reviewed Cleansers</h3>
+<% @cleansers.each do |p| %>
+    <ul>
+    <li><%= link_to p.name, product_path(p) %>
+    </ul>
+<% end %>
+
+<h3>All Reviewed Moisturizers</h3>
+<% @moisturizers.each do |p| %>
+    <ul>
+    <li><%= link_to p.name, product_path(p) %>
+    </ul>
+<% end %>
