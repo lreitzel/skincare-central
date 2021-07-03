@@ -1,2 +1,4 @@
 <h2>Edit <%= @product.name %>:<h2>
+<%= render partial: "errors", locals: {product: @product}
 <%= render "form" %>
+#am I keeping this option?

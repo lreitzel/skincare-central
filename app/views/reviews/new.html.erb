@@ -1,11 +1,5 @@
 <h2>Create a New Review Here:</h2>
 
-<% if @review.errors.any? %>
-    <ul>
-    <% @review.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-    <% end %>
-    </ul>
-<% end %>
-
+<%= render partial: "errors", locals: {review: @review} %>
+<br><br>
 <%= render 'form' %>

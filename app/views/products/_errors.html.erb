@@ -1,0 +1,10 @@
+
+
+<% if product.errors.any? %>
+    <h3><%= pluralize(product.errors.count, "error") %> prevented the Product from saving:
+    <ul>
+    <% product.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>

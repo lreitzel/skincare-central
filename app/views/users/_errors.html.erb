@@ -1,0 +1,8 @@
+<% if user.errors.any? %>
+    <h3><%= pluralize(user.errors.count, "error") %> prevented this account from saving:
+    <ul>
+    <% user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>

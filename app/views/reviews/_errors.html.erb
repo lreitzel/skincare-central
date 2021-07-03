@@ -1,0 +1,8 @@
+<% if review.errors.any? %>
+    <h3><%= pluralize(review.errors.count, "error") %> prevented the Review from saving:
+    <ul>
+    <% review.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>
