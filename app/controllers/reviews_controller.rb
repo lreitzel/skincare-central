@@ -28,6 +28,11 @@ class ReviewsController < ApplicationController
     end
 
     def show
+        if @review.nil?
+            redirect_to reviews_path
+        else
+            render :show
+        end
     end
 
     def edit
@@ -41,6 +46,8 @@ class ReviewsController < ApplicationController
             render :edit
         end
     end
+
+    
 
     def destroy
         @review.delete

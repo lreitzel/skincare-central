@@ -20,6 +20,11 @@ class ProductsController < ApplicationController
     end
 
     def show #want to show/link to all reviews associated with the product
+        if @product.nil?
+            redirect_to products_path
+        else
+            render :show
+        end
     end
 
     def edit #should this just be part of the nested review form?
@@ -31,6 +36,11 @@ class ProductsController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def product_category
+        @cleansers = Product.product_category("Cleanser")
+        @moisturizers = Product.product_category("Moisturizer")
     end
 
     def destroy #maybe shouldn't be allowed because others may want to use this product
