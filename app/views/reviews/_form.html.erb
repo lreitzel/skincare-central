@@ -10,7 +10,7 @@
 
     <h4>Create a Review:</h4>
     <%= f.label :rating %>
-    <%= f.text_field :rating %><br><br>
+    <%= f.select :rating, options_for_select(Review::RATING), {include_blank: true} %><br><br>
     <%= f.label :review_body, "Review:" %>
     <%= f.text_area :review_body %><br><br>
     <%= f.submit "Submit" %>

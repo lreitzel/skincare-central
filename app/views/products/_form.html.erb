@@ -6,6 +6,6 @@
     <%= f.label :brand %>
     <%= f.text_field :brand %><br><br>
     <%= f.label :price %>
-    <%= f.select :price, options_for_select(Product::PRICE) %><br><br>
+    <%= f.select :price, options_for_select(Product::PRICE), {include_blank: true} %><br><br>
     <%= f.submit %>
 <% end %>
