@@ -29,4 +29,10 @@ module ApplicationHelper
         @review = Review.find_by(id: params[:id])
     end
 
+    def flash_alert?
+        if flash[:alert]
+            flash[:alert]
+        end
+    end
+
 end

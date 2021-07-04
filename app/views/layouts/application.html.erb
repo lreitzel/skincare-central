@@ -27,9 +27,8 @@
       <% end %>
     </div>
     <br>
-    <% if flash[:alert] %>
-      <%= flash[:alert] %>
-    <% end %>
+    <%= flash_alert? %>
+    <br>
     <h1>Skincare Central</h1>
   
     <%= yield %>
