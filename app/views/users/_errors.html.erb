@@ -1,8 +1,8 @@
-<% if user.errors.any? %>
+<% if object.errors.any? %>
     <div class= "field_with_errors" >
-    <h3><%= pluralize(user.errors.count, "error") %> prevented this account from saving:
+    <h3><%= pluralize(object.errors.count, "error") %> prevented this from saving:
     <ul>
-    <% user.errors.full_messages.each do |error| %>
+    <% object.errors.full_messages.each do |error| %>
         <li><%= error %></li>
     <% end %>
     </ul>
