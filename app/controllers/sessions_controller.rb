@@ -11,10 +11,9 @@ class SessionsController < ApplicationController
         @user = user.try(:authenticate, params[:user][:password])
         if @user
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
+            redirect_to user_path(@user), alert: "Login Successful!"
         else
-            flash[:notice] = "User Not Found"
-            redirect_to login_path
+            redirect_to login_path, alert: "Login Unsuccessful, Try Again"
         end
     end
 

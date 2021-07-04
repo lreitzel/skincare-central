@@ -13,7 +13,7 @@ module ApplicationHelper
         !!session[:user_id]
     end
 
-    def require_login
+    def require_login #should I also have a require_login with a current_user?
         redirect_to login_path unless session.include?(:user_id)
     end
 

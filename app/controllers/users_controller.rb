@@ -13,7 +13,6 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(current_user)
         else
-            flash[:alert] = "Sign-Up Unsuccessful, Please Try Again"
             render :new
         end
     end
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
         if @user != nil
             render :show
         else
-            redirect_to root_path, alert: "User not found"
+            redirect_to root_path
         end
     end
 
@@ -40,7 +39,7 @@ class UsersController < ApplicationController
 
     def destroy
         @user.delete
-        redirect_to root_path, alert: "Your account has been deleted"
+        redirect_to root_path
     end
     
     private
