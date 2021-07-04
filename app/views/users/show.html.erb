@@ -1,6 +1,8 @@
 <h2><%= @user.first_name %>'s Profile</h2>
 
-<h3>Skin Type:</h3><%= @user.skin_type %></h3>
+<h3>Skin Type: <%= @user.skin_type %></h3>
+<h3>Age: <%= @user.age %></h3>
+
 
 <h3>Here are your reviews:</h3>
  <% @user.reviews.each do |r| %>
@@ -9,6 +11,8 @@
     </ul>
 <% end %>
 
-<%= link_to "Edit Profile", edit_user_path(@user) %>
+<% if @user.id == current_user %>
+    <%= link_to "Edit Profile", edit_user_path(@user) %>
+<% end %>
 
 
