@@ -18,7 +18,7 @@
     <%= f.text_field :age %><br>
 
     <%= f.label :skin_type, "Skin Type" %>
-    <%= f.select :skin_type, options_for_select(skin_types) %><br>
+    <%= f.select :skin_type, options_for_select(skin_types), {include_blank: true} %><br>
 
     <%= f.submit "Submit" %>
 

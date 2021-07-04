@@ -12,4 +12,6 @@ class Product < ApplicationRecord
 
     PRICE = ["$", "$$", "$$$"]
 
+    CATEGORY = ["Cleanser", "Moisturizer", "Serum", "Spray", "Sunscreen", "Toner", "Exfoliant", "Other"]
+
 end

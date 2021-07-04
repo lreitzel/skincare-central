@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # get 'auth/failure', to: redirect('/')
   get '/product_category', to: "products#product_category"
 
-  resources :products, only: [:index, :show, :new]
+  resources :products, only: [:index, :show, :new, :create, :edit, :update]
   resources :reviews
   resources :users
 

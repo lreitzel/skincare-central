@@ -11,29 +11,27 @@
   </head>
 
   <body>
-    <h1>Skincare Central</h1>
-    <h4>The Place to Find your Best Skincare</h4>
-    <div class=navbar>
+  <br>
+    <div class="navbar-left">
+      <%= link_to "See all Reviews", reviews_path %> | 
+      <%= link_to "See all Products", products_path %> | 
+      <%= link_to "See Products by Category", product_category_path %> |
       <% if logged_in %>
-        <%= link_to "Create New Product", new_product_path %>
-        <br><br>
-        <%= link_to "Create New Review", new_review_path %>
-        <br><br>
-        <%= link_to "See all Reviews", reviews_path %>
-        <br><br>
-        <%= link_to "See all Products", products_path %>
-        <br><br>
-        <%= link_to "See Products by Category", product_category_path %>
-        <br><br>
+        <%= link_to "Create New Product", new_product_path %> | 
+        <%= link_to "Create New Review", new_review_path %> |
+        <%= link_to "My Profile", user_path(current_user) %> |
         <%= link_to "Log Out", logout_path, method: :post %>
-        <br><br>
       <% else %>
-        <%= link_to "Sign Up", new_user_path %>
-        <br><br>
+        <%= link_to "Sign Up", new_user_path %> | 
         <%= link_to "Log In", login_path %> 
-        <br><br>
       <% end %>
     </div>
+    <br>
+    <% if flash[:alert] %>
+      <%= flash[:alert] %>
+    <% end %>
+    <h1>Skincare Central</h1>
+    <h4>The Place to Find your Best Skincare</h4>
 
     <%= yield %>
   </body>

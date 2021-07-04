@@ -2,7 +2,7 @@
     <%= f.label :name %>
     <%= f.text_field :name %><br><br>
     <%= f.label :category %>
-    <%= f.text_field :category %><br><br>
+    <%= f.select :category, options_for_select(Product::CATEGORY), {inlcude_blank: true} %><br><br>
     <%= f.label :brand %>
     <%= f.text_field :brand %><br><br>
     <%= f.label :price %>
