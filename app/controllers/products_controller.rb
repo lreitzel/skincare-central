@@ -6,14 +6,14 @@ class ProductsController < ApplicationController
         @products = Product.all
     end
 
-    def new #should I just have reviews new be the place where we make a new product?
+    def new
         @product = Product.new
     end
 
-    def create #see above
+    def create
         @product = Product.create(product_params)
         if @product.save
-            redirect_to product_path(@product)
+            redirect_to product_path(@product), alert: "Product successfully created!"
         else
             render :new
         end
